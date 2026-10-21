@@ -1,0 +1,30 @@
+[
+  {
+    "name": "input validation defaults off",
+    "file": "src/service/xonly.ts",
+    "from": "public validate=true",
+    "to": "public validate=false",
+    "test": "rejects a twist point by default"
+  },
+  {
+    "name": "subgroup log off by one",
+    "file": "src/dlog/bsgs.ts",
+    "from": "return (i*m+j)%order;",
+    "to": "return ((i*m+j)+1n)%order;",
+    "test": "rejects a twist point by default"
+  },
+  {
+    "name": "CRT combines wrong residue",
+    "file": "src/nt/crt.ts",
+    "from": "(residues[i]-value)*inverse",
+    "to": "(residues[i]+value)*inverse",
+    "test": "rejects a twist point by default"
+  },
+  {
+    "name": "X25519 clears too few low bits",
+    "file": "src/real/x25519.ts",
+    "from": "k[0]&=248;",
+    "to": "k[0]&=252;",
+    "test": "matches both X25519 scalar multiplication vectors"
+  }
+]

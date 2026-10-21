@@ -46,9 +46,10 @@ npm test
 npm run build
 npx playwright install chromium
 npm run test:a11y
+npm run test:mutations
 ```
 
-8 unit tests prove toy group/factor facts, exact-order points, both end-to-end recovery paths, cofactor behavior, both RFC 7748 scalar vectors and the 1,000-iteration vector. The Playwright suite scans reachable desktop and mobile states for WCAG 2.1 A/AA issues and independently rederives displayed claims. GitHub Actions runs unit tests, production build and browser gate before deploying; it also gates Dependabot pull requests, groups minor/patch npm updates and dispatches a deploy after an automated merge.
+8 unit tests prove toy group/factor facts, exact-order points, both end-to-end recovery paths, cofactor behavior, both RFC 7748 scalar vectors and the 1,000-iteration vector. The replayable mutation harness contains 4 concrete source patches. Each run first passes its named baseline test, requires a non-empty diff, a successful build and changed JavaScript bundle hash, then requires the owning test to fail and restores the original hash. The Playwright suite scans reachable desktop and mobile states for WCAG 2.1 A/AA issues and independently rederives displayed claims. GitHub Actions runs unit tests, production build and browser gate before deploying; it also gates Dependabot pull requests, groups minor/patch npm updates and dispatches a deploy after an automated merge.
 
 ## Performance
 
