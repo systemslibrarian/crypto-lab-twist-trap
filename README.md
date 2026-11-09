@@ -37,7 +37,7 @@ npm run dev
 
 ## Related Demos
 
-[Point Arithmetic](https://github.com/systemslibrarian/crypto-lab-point-arithmetic) · [Log Forge](https://github.com/systemslibrarian/crypto-lab-log-forge) · [Curve Lens](https://github.com/systemslibrarian/crypto-lab-curve-lens) · [Key Exchange](https://github.com/systemslibrarian/crypto-lab-key-exchange)
+[Point Arithmetic](https://github.com/systemslibrarian/crypto-lab-ec-point-arithmetic) · [Log Forge](https://github.com/systemslibrarian/crypto-lab-log-forge) · [Curve Lens](https://github.com/systemslibrarian/crypto-lab-curve-lens) · [Key Exchange](https://github.com/systemslibrarian/crypto-lab-key-exchange)
 
 ## Build & Verify
 
