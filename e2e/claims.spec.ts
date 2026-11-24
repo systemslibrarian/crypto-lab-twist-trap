@@ -26,3 +26,14 @@ test('rendered twist residues and recovered scalar independently match the publi
  await page.locator('#twist-validation').selectOption('on');await expect(out).toContainText('Retired');
  await page.getByRole('button',{name:'Send an on-curve order-4 point'}).click();await expect(page.locator('#cofactor-out')).toContainText('ON THE CURVE — AND LEAKING');
 });
+
+test('a nonsquare coordinate can belong to the main curve', async ({ page }) => {
+  await page.goto('./');
+  await expect(page.getByText('The coordinate x itself need not be a square.', {exact:false})).toBeVisible();
+  const u = 3n;
+  expect(power(u, (p - 1n) / 2n)).toBe(p - 1n);
+  expect(power(mod(u**3n + A*u*u + u), (p - 1n) / 2n)).toBe(1n);
+  await page.locator('#try-u').fill('3');
+  await page.locator('#try-u-button').click();
+  await expect(page.locator('#try-u-out')).toContainText('10884 mod p is a square: on E');
+});
